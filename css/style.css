@@ -1,0 +1,437 @@
+
+/* Base */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background-color: #000000;
+    font-family: 'Orbitron', sans-serif;
+}
+
+
+/* Cabeçalho */
+
+.cabecalho {
+    width: 100%;
+    min-height: 100px;
+
+    background-color: #000000;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Identidade visual */
+
+.logo {
+    width: 100%;
+
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    display: block;
+
+    width: clamp(220px, 30vw, 390px);
+    max-width: 85vw;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* Fundo */
+
+.area-fundo {
+    width: 100%;
+    display: grid;
+}
+
+.imagem-fundo {
+    grid-area: 1 / 1;
+
+    width: 100%;
+    line-height: 0;
+}
+
+.imgfundo {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* Conteúdo principal */
+
+.caixa-central {
+    grid-area: 1 / 1;
+
+    position: relative;
+    top: -25px;
+
+    justify-self: center;
+    align-self: center;
+
+    width: 92%;
+    max-width: 1380px;
+
+    min-height: 700px;
+
+    margin: 30px 0;
+    padding: clamp(20px, 3vw, 42px);
+
+    background-color: #ffffff;
+    border-radius: 18px;
+
+    z-index: 2;
+}
+
+/* Título e introdução */
+
+.caixa-central h1 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 30px;
+    color: #000000;
+
+    text-align: center;
+}
+
+.caixa-central p {
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+    color: #666666;
+
+    text-align: center;
+}
+
+
+/* Galeria */
+
+.personagens-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+
+/* Cards */
+
+.personagem-card {
+    position: relative;
+
+    background-color: #f1f5f9;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.personagem-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px #00000033;
+}
+
+
+/* Imagens */
+
+.personagem-imagem {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    display: grid;
+    place-items: center;
+
+    background-color: #e2e8f0;
+
+    overflow: hidden;
+}
+
+.personagem-imagem img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* Mensagem exibida quando a imagem não carrega */
+
+.imagem-fallback {
+    padding: 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+
+    color: #64748b;
+
+    text-align: center;
+}
+
+.personagem-imagem [hidden] {
+    display: none !important;
+}
+
+
+/* Informações dos personagens */
+
+.personagem-info {
+    padding: 15px;
+}
+
+.personagem-info h2 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+    color: #17212b;
+}
+
+.personagem-info p {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #64748b;
+
+    margin-top: 8px;
+}
+
+.status {
+    display: inline-block;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+}
+
+/* Cores por status */
+
+.status-alive {
+    color: #15803d;
+}
+
+.status-dead {
+    color: #dc2626;
+}
+
+.status-unknown {
+    color: #64748b;
+}
+
+
+/* Favoritos */
+
+.btn-favorito {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    z-index: 5;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.95);
+
+    color: #ff4b5c;
+
+    font-size: 27px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+/* Estado selecionado */
+
+.btn-favorito.ativo {
+    color: #e60035;
+    background-color: #ffe0e7;
+
+    transform: scale(1.1);
+}
+
+.btn-favorito:hover {
+    transform: scale(1.2);
+}
+
+
+/* Rodapé */
+
+.rodape {
+    width: 100%;
+    min-height: 60px;
+
+    position: relative;
+    z-index: 10;
+
+    background-color: #000000;
+}
+
+.rodape p {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 20px;
+    color: #ffffff;
+
+    text-align: center;
+}
+
+
+/* Ajustes para telas menores */
+
+@media (max-width: 1100px) {
+
+    .personagens-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .caixa-central {
+        width: 92%;
+    }
+
+}
+
+
+/* Tablets */
+
+@media (max-width: 760px) {
+
+    .logo img {
+        width: min(65vw, 320px);
+    }
+
+    .caixa-central {
+        width: 94%;
+        padding: 25px;
+        top: -20px;
+    }
+
+    .caixa-central h1 {
+        font-size: clamp(20px, 4vw, 28px);
+    }
+
+    .personagens-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .personagem-info {
+        padding: 12px;
+    }
+
+    .personagem-info h2 {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    .personagem-info p {
+        font-size: 12px;
+    }
+
+}
+
+
+/* Celulares */
+
+@media (max-width: 520px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .cabecalho {
+        min-height: 60px;
+    }
+
+    .logo img {
+        width: min(75vw, 260px);
+    }
+
+    .caixa-central {
+        width: 94%;
+        min-height: 600px;
+
+        padding: 20px 14px;
+
+        top: -10px;
+
+        border-radius: 12px;
+    }
+
+    .caixa-central h1 {
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+    .caixa-central p {
+        font-size: 13px;
+    }
+
+    .personagens-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .personagem-card {
+        width: 100%;
+        max-width: 340px;
+        margin: auto;
+    }
+
+    .personagem-info h2 {
+        font-size: 14px;
+    }
+
+    .personagem-info p {
+        font-size: 13px;
+    }
+
+    .btn-favorito {
+        width: 36px;
+        height: 36px;
+    }
+
+    .rodape p {
+        font-size: 11px;
+        padding: 3px;
+    }
+
+}
